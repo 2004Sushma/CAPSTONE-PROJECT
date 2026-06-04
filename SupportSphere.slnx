@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="SupportSphere.Tests/SupportSphere.Tests.csproj" Id="27c2c567-81e1-4e98-9361-001b4f2c476a" />
+  <Project Path="SupportSphere/SupportSphere.csproj" />
+</Solution>

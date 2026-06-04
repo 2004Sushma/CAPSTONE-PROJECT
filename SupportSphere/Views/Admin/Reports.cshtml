@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Reports Dashboard";
+}
+
+<div class="container mt-4">
+
+    <div class="text-center mb-5">
+        <h1 class="dashboard-title">📊 Reports Dashboard</h1>
+        <p class="text-muted">SupportSphere Analytics Overview</p>
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="report-card total-card">
+                <div class="report-icon">🎫</div>
+                <h4>Total Tickets</h4>
+                <h1>@ViewBag.TotalTickets</h1>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="report-card open-card">
+                <div class="report-icon">🟢</div>
+                <h4>Open Tickets</h4>
+                <h1>@ViewBag.OpenTickets</h1>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="report-card closed-card">
+                <div class="report-icon">✅</div>
+                <h4>Closed Tickets</h4>
+                <h1>@ViewBag.ClosedTickets</h1>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="report-summary mt-5">
+        <h3>📈 Performance Summary</h3>
+
+        <div class="summary-row">
+            <span>Total Tickets</span>
+            <span>@ViewBag.TotalTickets</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Open Tickets</span>
+            <span>@ViewBag.OpenTickets</span>
+        </div>
+
+        <div class="summary-row">
+            <span>Closed Tickets</span>
+            <span>@ViewBag.ClosedTickets</span>
+        </div>
+    </div>
+
+</div>

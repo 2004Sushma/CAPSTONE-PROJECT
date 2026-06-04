@@ -1,0 +1,91 @@
+﻿@model SupportSphere.Models.Ticket
+
+@{
+    ViewData["Title"] = "Ticket Details";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-header bg-info text-white">
+            <h3 class="mb-0">📋 Ticket Details</h3>
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Ticket Number</div>
+                <div class="col-md-9">@Model.TicketNumber</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Title</div>
+                <div class="col-md-9">@Model.Title</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Description</div>
+                <div class="col-md-9">@Model.Description</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Status</div>
+                <div class="col-md-9">
+                    <span class="badge bg-success">@Model.Status</span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Priority</div>
+                <div class="col-md-9">
+                    <span class="badge bg-warning text-dark">@Model.Priority</span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Created Date</div>
+                <div class="col-md-9">@Model.CreatedDate</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Resolved Date</div>
+                <div class="col-md-9">@Model.ResolvedDate</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Customer Email</div>
+                <div class="col-md-9">@Model.CustomerId</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Category</div>
+                <div class="col-md-9">@Model.Category?.CategoryName</div>
+            </div>
+
+            <div class="row mb-3">
+                <div class="col-md-3 fw-bold">Sub Category</div>
+                <div class="col-md-9">@Model.SubCategory?.SubCategoryName</div>
+            </div>
+
+        </div>
+
+        <div class="card-footer bg-light">
+
+            <a asp-action="Edit"
+                   asp-route-id="@Model.TicketId"
+                   class="btn btn-warning">
+                ✏️ Edit Ticket
+            </a>
+
+            <a asp-controller="Tickets"
+                   asp-action="Index"
+                   class="btn btn-secondary ms-2">
+                ← Back to List
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

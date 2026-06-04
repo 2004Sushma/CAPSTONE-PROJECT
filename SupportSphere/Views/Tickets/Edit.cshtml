@@ -1,0 +1,110 @@
+﻿@model SupportSphere.Models.Ticket
+
+@{
+    ViewData["Title"] = "Edit Ticket";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-header bg-warning text-dark">
+            <h3 class="mb-0">✏️ Edit Ticket</h3>
+        </div>
+
+        <div class="card-body p-4">
+
+            <form asp-action="Edit">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+                <input type="hidden" asp-for="TicketId" />
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TicketNumber" class="form-label fw-bold"></label>
+                        <input asp-for="TicketNumber" class="form-control" />
+                        <span asp-validation-for="TicketNumber" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Title" class="form-label fw-bold"></label>
+                        <input asp-for="Title" class="form-control" />
+                        <span asp-validation-for="Title" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label asp-for="Description" class="form-label fw-bold"></label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Status" class="form-label fw-bold"></label>
+                        <input asp-for="Status" class="form-control" />
+                        <span asp-validation-for="Status" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="Priority" class="form-label fw-bold"></label>
+                        <input asp-for="Priority" class="form-control" />
+                        <span asp-validation-for="Priority" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="CreatedDate" class="form-label fw-bold"></label>
+                        <input asp-for="CreatedDate" class="form-control" />
+                        <span asp-validation-for="CreatedDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ResolvedDate" class="form-label fw-bold"></label>
+                        <input asp-for="ResolvedDate" class="form-control" />
+                        <span asp-validation-for="ResolvedDate" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="CategoryId" class="form-label fw-bold"></label>
+                        <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId"></select>
+                        <span asp-validation-for="CategoryId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="SubCategoryId" class="form-label fw-bold"></label>
+                        <select asp-for="SubCategoryId" class="form-select" asp-items="ViewBag.SubCategoryId"></select>
+                        <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                    </div>
+
+                    <div class="col-12 mb-3">
+                        <label asp-for="CustomerId" class="form-label fw-bold"></label>
+                        <input asp-for="CustomerId" class="form-control" />
+                        <span asp-validation-for="CustomerId" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">
+                        💾 Save Changes
+                    </button>
+
+                    <a asp-action="Index"
+                           class="btn btn-secondary ms-2">
+                        ← Back to List
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

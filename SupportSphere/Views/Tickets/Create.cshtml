@@ -1,0 +1,96 @@
+﻿@model SupportSphere.Models.Ticket
+
+@{
+    ViewData["Title"] = "Raise Ticket";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">🎫 Raise New Ticket</h3>
+        </div>
+
+        <div class="card-body p-4">
+
+            <form asp-action="Create">
+
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div asp-validation-summary="All" class="text-danger"></div>
+
+                <div class="mb-3">
+                    <label asp-for="CategoryId" class="form-label fw-bold"></label>
+                    <select asp-for="CategoryId" class="form-select" asp-items="ViewBag.CategoryId">
+                        <option value="">-- Select Category --</option>
+                    </select>
+                    <span asp-validation-for="CategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="SubCategoryId" class="form-label fw-bold"></label>
+                    <select asp-for="SubCategoryId" class="form-select" asp-items="ViewBag.SubCategoryId">
+                        <option value="">-- Select Sub Category --</option>
+                    </select>
+                    <span asp-validation-for="SubCategoryId" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label fw-bold"></label>
+
+                    <select asp-for="Title" class="form-select">
+                        <option value="">-- Select Issue --</option>
+                        <option value="Unable to Login">Unable to Login</option>
+                        <option value="Password Reset Request">Password Reset Request</option>
+                        <option value="Application Error">Application Error</option>
+                        <option value="Profile Update Issue">Profile Update Issue</option>
+                        <option value="Payment Failed">Payment Failed</option>
+                        <option value="Refund Request">Refund Request</option>
+                    </select>
+
+                    <span asp-validation-for="Title" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Description" class="form-label fw-bold"></label>
+                    <textarea asp-for="Description"
+                              class="form-control"
+                              rows="5"
+                              placeholder="Describe your issue in detail"></textarea>
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Priority" class="form-label fw-bold"></label>
+                    <select asp-for="Priority" class="form-select">
+                        <option value="Low">🟢 Low</option>
+                        <option value="Medium" selected>🟡 Medium</option>
+                        <option value="High">🔴 High</option>
+                    </select>
+                    <span asp-validation-for="Priority" class="text-danger"></span>
+                </div>
+
+                <div class="mt-4">
+                    <button type="submit" class="btn btn-success">
+                        🚀 Submit Ticket
+                    </button>
+
+                    <a asp-action="Index"
+                           class="btn btn-secondary ms-2">
+                        ← Back to List
+                    </a>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

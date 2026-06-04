@@ -1,0 +1,59 @@
+﻿@model SupportSphere.Models.Feedback
+
+@{
+    ViewData["Title"] = "Feedback Details";
+}
+
+<div class="container mt-5">
+
+    <div class="card shadow-lg border-0 rounded-4">
+
+        <div class="card-header bg-primary text-white">
+            <h3 class="mb-0">⭐ Feedback Details</h3>
+        </div>
+
+        <div class="card-body p-4">
+
+            <div class="row mb-4">
+                <div class="col-md-3 fw-bold">
+                    Rating
+                </div>
+                <div class="col-md-9">
+                    <span class="badge bg-warning text-dark fs-6">
+                        ⭐ @Model.Rating / 5
+                    </span>
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-3 fw-bold">
+                    Comments
+                </div>
+                <div class="col-md-9">
+                    @Model.Comments
+                </div>
+            </div>
+
+            <div class="row mb-4">
+                <div class="col-md-3 fw-bold">
+                    Related Ticket
+                </div>
+                <div class="col-md-9">
+                    @Model.Ticket?.Title
+                </div>
+            </div>
+
+        </div>
+
+        <div class="card-footer bg-light">
+
+            <a asp-action="Index"
+                   class="btn btn-secondary">
+                ← Back to Feedback List
+            </a>
+
+        </div>
+
+    </div>
+
+</div>

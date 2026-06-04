@@ -1,0 +1,74 @@
+﻿@model IEnumerable<SupportSphere.Models.Ticket>
+
+@{
+    ViewData["Title"] = "All Tickets";
+}
+
+<h1 class="dashboard-title">🎫 All Tickets</h1>
+<p class="text-muted">
+    View, update and manage customer support requests
+</p>
+
+<div class="table-responsive">
+    <table class="table table-hover table-bordered align-middle">
+        <thead>
+            <tr>
+                <th>Ticket Number</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th>Priority</th>
+                <th>Created Date</th>
+                <th>Resolved Date</th>
+                <th>Customer</th>
+                <th>Category</th>
+                <th>SubCategory</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.TicketNumber</td>
+                    <td>@item.Title</td>
+                    <td>@item.Description</td>
+                    <td>@item.Status</td>
+                    <td>@item.Priority</td>
+                    <td>@item.CreatedDate</td>
+                    <td>@item.ResolvedDate</td>
+                    <td>@item.CustomerId</td>
+                    <td>@item.Category?.CategoryName</td>
+                    <td>@item.SubCategory?.SubCategoryName</td>
+
+                    <td class="text-nowrap">
+
+                        <a asp-controller="Admin"
+                               asp-action="Edit"
+                               asp-route-id="@item.TicketId"
+                               class="btn btn-warning btn-sm">
+                            Edit
+                        </a>
+
+                        <a asp-controller="Admin"
+                               asp-action="Details"
+                               asp-route-id="@item.TicketId"
+                               class="btn btn-info btn-sm">
+                            Details
+                        </a>
+
+                        <a asp-controller="Admin"
+                               asp-action="Delete"
+                               asp-route-id="@item.TicketId"
+                               class="btn btn-danger btn-sm">
+                            Delete
+                        </a>
+
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

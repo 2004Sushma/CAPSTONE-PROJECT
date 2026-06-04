@@ -1,0 +1,52 @@
+﻿<div class="container mt-5">
+    <h1 class="text-center mb-4">🎫 Customer Dashboard</h1>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 text-center">
+                <div class="card-body">
+                    <h2>🎟️</h2>
+                    <h4>Raise Ticket</h4>
+                    <p>Create a new support request.</p>
+                    <a asp-controller="Tickets"
+                           asp-action="Create"
+                           class="btn btn-primary">
+                        Open
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 text-center">
+                <div class="card-body">
+                    <h2>📋</h2>
+                    <h4>My Tickets</h4>
+                    <p>Track your support requests.</p>
+                    <a asp-controller="Tickets"
+                           asp-action="Index"
+                           class="btn btn-success">
+                        Open
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow-lg border-0 text-center">
+                <div class="card-body">
+                    <h2>⭐</h2>
+                    <h4>Submit Feedback</h4>
+                    <p>Share your experience.</p>
+                    <a asp-controller="Feedbacks"
+                           asp-action="Create"
+                           class="btn btn-warning">
+                        Open
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<SupportSphere.Models.Ticket>
+
+@{
+    ViewData["Title"] = "Resolve Tickets";
+}
+
+<h2>Resolve Tickets</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ticket Number</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TicketNumber</td>
+                <td>@item.Title</td>
+                <td>@item.Status</td>
+                <td>
+                    <td>
+                        <a asp-controller="Admin"
+                               asp-action="Edit"
+                               asp-route-id="@item.TicketId"
+                               class="btn btn-success">
+                            Resolve
+                        </a>
+                    </td>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,65 @@
+﻿@model SupportSphere.Models.Feedback
+
+@{
+    ViewData["Title"] = "Give Feedback";
+}
+
+<div class="container mt-4">
+
+    <div class="feedback-card">
+
+        <div class="text-center mb-4">
+            <h1 class="fw-bold">⭐ Give Feedback</h1>
+            <p class="text-muted">Help us improve our support service</p>
+        </div>
+
+        <form asp-action="Create">
+
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="mb-3">
+                <label asp-for="Rating" class="form-label fw-bold"></label>
+                <input asp-for="Rating" class="form-control" placeholder="Rate from 1 to 5" />
+                <span asp-validation-for="Rating" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Comments" class="form-label fw-bold"></label>
+                <textarea asp-for="Comments"
+                          class="form-control"
+                          rows="4"
+                          placeholder="Write your feedback here..."></textarea>
+                <span asp-validation-for="Comments" class="text-danger"></span>
+            </div>
+
+            <div class="mb-4">
+                <label asp-for="TicketId" class="form-label fw-bold"></label>
+                <select asp-for="TicketId"
+                        class="form-control"
+                        asp-items="ViewBag.TicketId">
+                </select>
+                <span asp-validation-for="TicketId" class="text-danger"></span>
+            </div>
+
+            <div class="d-flex gap-2">
+                <input type="submit"
+                       value="Submit Feedback"
+                       class="btn btn-success" />
+
+                <a asp-action="Index"
+                       class="btn btn-secondary">
+                    Back to List
+                </a>
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

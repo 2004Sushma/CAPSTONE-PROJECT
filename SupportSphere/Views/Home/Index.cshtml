@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "SupportSphere";
+}
+
+<div class="text-center mb-4 mt-3">
+    <h1 class="display-2 fw-bold">SupportSphere</h1>
+    <p class="lead">Customer Support Ticket Management System</p>
+</div>
+
+    <hr />
+
+    <div class="row mt-3">
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3>🎫 Raise Ticket</h3>
+                    <p>Create and track support requests.</p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Tickets"
+                               asp-action="Create"
+                               class="btn btn-primary">
+                            Raise Ticket
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3>📋 My Tickets</h3>
+                    <p>View ticket status and updates.</p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Tickets"
+                               asp-action="Index"
+                               class="btn btn-success">
+                            View Tickets
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3>⭐ Feedback</h3>
+                    <p>Share your experience with us.</p>
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <a asp-controller="Feedbacks"
+                               asp-action="Create"
+                               class="btn btn-warning">
+                            Give Feedback
+                        </a>
+                    }
+                </div>
+            </div>
+        </div>
+
+    </div>
