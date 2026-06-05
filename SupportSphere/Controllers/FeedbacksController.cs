@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using SupportSphere.Data;
 using SupportSphere.Models;
-
+using System.Security.Claims;
 namespace SupportSphere.Controllers
 {
     public class FeedbacksController : Controller
@@ -20,10 +20,29 @@ namespace SupportSphere.Controllers
         }
 
         // GET: Feedbacks
+        // GET: Feedbacks
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Feedbacks.Include(f => f.Ticket);
-            return View(await applicationDbContext.ToListAsync());
+            if (User.IsInRole("Admin"))
+            {
+                var allFeedbacks = await _context.Feedbacks
+                    .Include(f => f.Ticket)
+                    .ToListAsync();
+
+                ViewBag.PageTitle = "All Customer Feedback";
+
+                return View(allFeedbacks);
+            }
+
+            var email = User.Identity?.Name;
+
+            var myFeedbacks = await _context.Feedbacks
+                .Include(f => f.Ticket)
+                .Where(f => f.Ticket.CustomerId == email)
+                .ToListAsync();
+            ViewBag.PageTitle = "My Feedback";
+
+            return View(myFeedbacks);
         }
 
         // GET: Feedbacks/Details/5

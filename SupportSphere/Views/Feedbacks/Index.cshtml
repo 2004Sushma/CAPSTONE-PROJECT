@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<SupportSphere.Models.Feedback>
 
 @{
-    ViewData["Title"] = "Customer Feedback";
+    ViewData["Title"] = "Feedback";
 }
 
 <div class="container mt-5">
 
     <div class="d-flex justify-content-between align-items-center mb-4">
         <div>
-            <h1 class="fw-bold">⭐ Customer Feedback</h1>
+            <h1 class="fw-bold">⭐ @(ViewBag.PageTitle ?? "Feedback")</h1>
             <p class="text-muted">Review customer ratings and comments</p>
         </div>
     </div>
@@ -17,7 +17,7 @@
 
         <div class="card-header text-white"
              style="background-color:#001845;">
-            <h4 class="mb-0">Feedback Records</h4>
+            <h4 class="mb-0">@ViewBag.PageTitle</h4>
         </div>
 
         <div class="card-body p-0">
